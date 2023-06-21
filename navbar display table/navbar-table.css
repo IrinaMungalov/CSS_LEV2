@@ -1,0 +1,46 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 5px 2px 2px grey;
+}
+
+/* 
+    About font families/FONTS
+    * web font face
+*/
+
+a {
+    text-decoration: none;
+}
+
+/*-------------------------------*/
+body {
+    background-color: #333;
+}
+.navbar {
+    background-color: #555;
+    /*text-align: left;*/ 
+    
+    display: table;
+    width: 100%;
+}
+.navbar ul {
+    display: table-row;
+}
+.navbar li {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    /* border: 1px solid red; */
+}
+.navbar li:first-child {
+    padding: 0 100px 0 20px;
+    text-align: left;
+}
+.navbar li:last-child {
+    padding: 0 20px 0 100px;
+    text-align: right;
+}
+.navbar a {
+    color: white;
+}
