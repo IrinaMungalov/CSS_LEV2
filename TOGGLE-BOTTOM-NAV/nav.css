@@ -1,0 +1,58 @@
+/* 
+:target
+em
+variables
+calc()
+
+*/
+
+body {
+    /* variables */
+    --light-color: rgb(255, 158, 39);
+    --dark-color: #333;
+    --text-color: rgb(31, 30, 30);
+
+    /*font-size: 30px;*/
+}
+
+body {
+    background-color: var(--dark-color);
+}
+
+#bottom-menu {
+    /*border: 1px solid red;*/
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+
+    overflow: hidden;
+}
+
+#bottom-menu a {
+    background-color: var(--light-color);
+    display: block;
+    padding: 0.5em;
+    margin-bottom: 0.2em;
+    border-radius: 100%;
+    text-align: center;
+    color: var(--text-color);
+    
+    transform: translateY(6.6em);  
+    box-shadow: 0 0 3px 2px white inset;
+    transition: 1s;
+}
+
+#bottom-menu:target a {
+    transform: translateY(0);
+    transition: 1s;    
+}
+#bottom-menu li:last-child a {
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
