@@ -1,0 +1,118 @@
+body {
+    background-color: #222;
+}
+
+.container {
+    border: 1px dotted white;
+    width: 90%;
+    height: 500px;
+    margin: 50px auto;
+}
+
+/* CUBE COMPONENT STYLES */
+.cube {
+    width: 400px;
+    height: 400px;
+    border: 1px solid white;
+    position: relative;
+    perspective: 500px;
+    color: transparent;
+    
+    margin: 50px auto;
+}
+
+.cube > .face {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    border: 1px solid green;
+
+    /* dev */
+    font-size: 50px;
+    text-align: center;
+    line-height: 400px;    
+}
+
+.cube > .ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    z-index: 1000;
+    transform: translate3d(175px,175px,-175px);
+
+        
+}
+.cube .b1 {
+    background-image: radial-gradient(white, blue);
+}
+.cube .b2 {
+    background-image: radial-gradient(white, red);
+}
+.cube .b3 {
+    background-image: radial-gradient(white, magenta);
+}
+.cube .b4 {
+    background-image: radial-gradient(white, orange);
+}
+.cube .b5 {
+    background-image: radial-gradient(white, green);
+}
+.cube .b6 {
+    background-image: radial-gradient(white, yellow);
+}
+.cube:hover .b1 {    
+    animation: bounce 10s 10;
+}
+.cube:hover .b2 {    
+    animation: bounce 9s 10 -1s;
+}
+.cube:hover .b3 {    
+    animation: bounce 10s 10 -3s;
+}
+.cube:hover .b4 {    
+    animation: bounceball 8s 10 -2s;
+}
+.cube:hover .b5 {    
+    animation: bounceball 10s 10 -0.5s;
+}
+.cube:hover .b6 {    
+    animation: bounceball 7s 10 -4s;
+}
+.cube > .front {
+    z-index: 1;
+}
+.cube > .back {
+    transform: translateZ(-400px);
+}
+.cube > .left {
+    transform: rotateY(90deg);
+    transform-origin: left;
+}
+.cube > .right {
+    transform: rotateY(-90deg);
+    transform-origin: right;
+}
+.cube > .top {
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+.cube > .bottom {
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+
+@keyframes bounce {
+    0% {transform: translate3d(175px,175px,-175px);}
+    25% {transform: translate3d(0,0,0);}
+    50% {transform: translate3d(350px,350px,-350px);}
+    75% {transform: translate3d(0,350px,0);}
+    100% {transform: translate3d(350px,350px,0);}
+}
+@keyframes bounceball {
+    0% {transform: translate3d(175px,175px,-175px);}
+    25% {transform: translate3d(350px,350px,-350px);}
+    50% {transform: translate3d(350px,350px,0);}
+    75% {transform: translate3d(0,0,-350px);}
+    100% {transform: translate3d(0,350px,0);}
+}
