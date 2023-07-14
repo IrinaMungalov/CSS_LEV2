@@ -1,0 +1,141 @@
+body {
+    background-image: radial-gradient(rgb(30, 34, 39), #456);
+    perspective: 1200px;
+    padding: 0.1px;
+    margin: 0;
+    
+}
+
+.book {
+    /*border: 3px solid green;*/
+    width: 148.5mm;
+    height: 210mm;
+
+    margin: 10% auto;
+    font-family: 'Open Sans', sans-serif;
+
+    transform: rotateY(-25deg);
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    cursor: pointer;
+    display: block;
+}
+
+.book:hover {
+    transform: rotateY(-35deg);
+
+}
+
+/* default state - cover */
+.book .front-cover {
+    margin: 0;
+    width: inherit;
+    height: inherit;
+    /*border: 3px solid red;*/   
+    background-color: #5b5442;
+    position: absolute;
+    z-index: 1;
+    transform-style: preserve-3d;
+    filter: contrast(1.5);
+    transform-origin: left;
+    transition: 1s;
+    z-index: 4;
+
+    backface-visibility: hidden;
+}
+
+.book .front-cover__backside {
+    width: inherit;
+    height: inherit;
+    background-color: #5b5442;
+    position: absolute;
+    z-index: 3;
+    transform-origin: left;
+    transition: 1s;
+    transform: rotateY(0) translateZ(0px);
+}
+
+.book input {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.book input:checked + .front-cover,
+.book input:checked ~ .front-cover__backside {
+    transform: rotateY(-100deg) translateZ(0px);
+}
+
+.book .front-cover::before {
+    content: "";
+    display: block;
+    height: inherit;
+    width: 3%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.137);
+}
+
+.book .front-cover::after {
+    content: "";
+    display: block;
+    width: inherit;
+    height: inherit;
+    background-image: linear-gradient(
+        -75deg, 
+        rgba(255, 255, 255, 0.311) 20%, 
+        transparent);
+    position: absolute;
+    top: 0;
+    
+}
+.book .front-cover img {
+    width: inherit;
+    height: 80%;
+    object-fit: cover;
+}
+.book .front-cover h1 {
+    font-size: 250%;
+}
+.book .front-cover h1,
+.book .front-cover h2,
+.book .front-cover h3 {
+    padding-left: 5%;
+    margin: 1% 0;
+    color: #e5d8b4;
+}
+
+.book .first-page {
+    font-family: Arial;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #fff;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+.book .back-cover {
+    margin: 0;
+    width: inherit;
+    height: inherit;
+    /*border: 3px solid red;*/   
+    background-color: #5b5442;
+    position: absolute;
+    transform: translateZ(-20mm);
+    
+}
+
+.book .pages {
+    height: inherit;
+    width: 20mm;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    right: -18.5mm;
+    transform: rotateY(90deg);
+    transform-origin: left;
+
+    background-image: 
+        repeating-linear-gradient(90deg, 
+                                black, white 0.5mm);
+}
