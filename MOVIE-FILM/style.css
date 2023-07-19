@@ -1,0 +1,118 @@
+body {
+    /*background-color: #334;*/
+    background-image: url(1.jpg);
+    background-size: cover;  
+    
+    /* SETTINGS */
+    --size: 40vh;
+    --count: 7;
+    --top-marker: calc( var(--size) * 0.04 * 0.75 );
+    --bottom-marker: calc( var(--size) * 0.96 * 0.75 );
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(transparent 50%, black 100%);
+    opacity: 0.6;
+}
+
+.movies {
+    width: var(--size);
+    height: var(--size);
+    background-color: rgb(7, 7, 33);
+
+    margin-top: calc( (100vh - var(--size) ) / 2);
+    margin-left: calc( 100vw / 3  - var(--size) /2 );
+    
+    /* HW3 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;   
+    
+}
+
+.movies .film {
+    /*background-color: #388;*/
+    height: calc( var(--size) * 0.75 );
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    overflow: hidden;
+    width: calc( var(--count) *   ( var(--size) * 0.92 * 0.75 * 4/3 + 1vh )  );
+    
+    background-image: 
+        linear-gradient(transparent, transparent var(--top-marker), #1239 var(--top-marker), #1239 var(--bottom-marker), transparent),
+        radial-gradient(transparent 50%, #1239 50%),
+        radial-gradient(transparent 50%, #1239 50%);
+
+    background-size: 
+        cover, 
+        var(--top-marker) var(--top-marker),
+        var(--top-marker) var(--top-marker);
+    background-repeat:
+        repeat,
+        repeat-x,
+        repeat-x;
+    background-position: 
+        top left,
+        top left,
+        bottom left;  
+        
+    filter: drop-shadow(2px 2px 6px black);
+}
+
+.movies .film::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5));
+    
+}
+
+.movies .film img {
+    /*display: none;*/
+    position: relative;
+    top: calc( var(--size) * 0.04 * 0.75 );
+    height: calc( var(--size) * 0.92 * 0.75 );
+    margin: 0 0.5vh;
+    
+}
+
+.movies .controls {
+    background-color: rgb(2, 2, 59);
+    position: absolute;
+    height: calc( var(--size) * 0.8 );
+    width: calc( var(--size) * 0.8 );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid black;
+    
+    border-radius: 100%;
+    opacity: 0.75;
+}
+
+button {
+    border-radius: 20%;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+
+}
+
